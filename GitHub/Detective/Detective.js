@@ -1,4 +1,4 @@
-let vacationDays = 3; // Initial vacation days
+let vacationDays = 0; // Initial vacation days
 function mysteryOperation() {
   const outcome = Math.random(); // Generates a random number between 0 and 1.
 
@@ -24,6 +24,9 @@ function vacation() {
     } catch (err) {
       console.log("Mission failed. Sorry, but your vacation is cancelled.");
       vacationDays += 1; // Add 1 day on failure
+    } finally {
+        vacationDays +=3; // Add 3 days on attendance
+        console.log("Vacation days: ", vacationDays);
     }
 	console.log("") // Empty line for readability
   }
