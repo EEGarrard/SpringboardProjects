@@ -115,13 +115,13 @@ function transferMoney(fromAccountId, toAccountId, amount) {
   const fromAccount = getAccountById(fromAccountId);
   const toAccount = getAccountById(toAccountId);
 
-  if (!fromAccount) {
+  if (!fromAccount) { // Check if source account exists
     throw new Error("Source account not found.");
-  } else if (!toAccount) {
+  } else if (!toAccount) { // Check if destination account exists
     throw new Error("Destination account not found.");
-  } else if (amount > fromAccount.balance) {
+  } else if (amount > fromAccount.balance) { // Check if transfer amount is valid
     throw new Error("Insufficient funds.");
-  } else if (
+  } else if ( // Check if transfer amount is valid
     !Number.isFinite(amount) ||
     amount <= 0 ||
     typeof amount !== "number"
@@ -129,7 +129,7 @@ function transferMoney(fromAccountId, toAccountId, amount) {
     throw new Error(
       "Invalid value for transfer amount: The amount must be a positive finite number."
     );
-  } else {
+  } else { // Transfer money from source to destination
     toAccount.balance += amount;
     fromAccount.balance -= amount;
     console.log(
