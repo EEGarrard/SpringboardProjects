@@ -18,25 +18,26 @@ function createAccount(newAccountId, newAccountOwner) {
     if (account.id === newAccountId || account.owner === newAccountOwner) {
       // Check if account ID or owner already exists
       throw new Error("Account already exists.");
-    } else if (newAccountId < 1 || typeof newAccountId !== "number") {
+    }
+    if (newAccountId < 1 || typeof newAccountId !== "number") {
       // Check if account ID is valid
       throw new Error("Invalid account ID.");
-    } else if (
+    }
+    if (
       typeof newAccountOwner !== "string" ||
       !/[a-zA-Z]/.test(newAccountOwner) ||
       newAccountOwner.length < 1
     ) {
       // Check if owner name is valid
       throw new Error("Invalid owner name.");
-    } else {
-      accounts.push({
-        id: newAccountId,
-        owner: newAccountOwner,
-        balance: 0,
-      });
-      console.log("Account created successfully.");
-      return;
     }
+    accounts.push({
+      id: newAccountId,
+      owner: newAccountOwner,
+      balance: 0,
+    });
+    console.log("Account created successfully.");
+    return;
   }
 }
 //createAccount(1, "Alice");
@@ -55,19 +56,20 @@ function depositMoney(accountId, amount) {
   if (!account) {
     // Check if account exists
     throw new Error("Account not found");
-  } else if (amount <= 0 || typeof amount !== "number") {
+  }
+  if (amount <= 0 || typeof amount !== "number") {
     // Check if deposit amount is valid
     throw new Error("Invalid deposit amount.");
-  } else if (!isFinite(amount)) {
-    throw new Error("Nice try.");
-  } else {
-    // Deposit money into account
-    account.balance += amount;
-    console.log(
-      `Deposited ${amount} into account ${accountId}. New balance: ${account.balance}`
-    );
-    return account.owner, account.balance;
   }
+  if (!isFinite(amount)) {
+    throw new Error("Nice try.");
+  }
+  // Deposit money into account
+  account.balance += amount;
+  console.log(
+    `Deposited ${amount} into account ${accountId}. New balance: ${account.balance}`
+  );
+  return account.owner, account.balance;
 }
 
 //depositMoney(1, "300");
@@ -91,21 +93,23 @@ function withdrawMoney(accountId, amount) {
     throw new Error(
       "Invalid value for withdrawal amount: The amount must be a finite number."
     );
-  } else if (amount > account.balance) {
+  }
+  if (amount > account.balance) {
     // Check if withdrawal amount is valid
     throw new Error("Insufficient funds.");
-  } else if (amount <= 0) {
+  }
+  if (amount <= 0) {
     // Check if withdrawal amount is valid
     throw new Error("Invalid withdrawal amount.");
-  } else {
-    // Withdraw money from account
-    account.balance -= amount;
-    console.log(
-      `Withdrew ${amount} from account ${accountId}. New balance: ${account.balance}`
-    );
-    return account.balance;
   }
+  // Withdraw money from account
+  account.balance -= amount;
+  console.log(
+    `Withdrew ${amount} from account ${accountId}. New balance: ${account.balance}`
+  );
+  return account.balance;
 }
+
 //withdrawMoney(1, -100);
 //withdrawMoney(1, 0)
 //withdrawMoney(1, 501)
@@ -115,13 +119,20 @@ function transferMoney(fromAccountId, toAccountId, amount) {
   const fromAccount = getAccountById(fromAccountId);
   const toAccount = getAccountById(toAccountId);
 
-  if (!fromAccount) { // Check if source account exists
+  if (!fromAccount) {
+    // Check if source account exists
     throw new Error("Source account not found.");
-  } else if (!toAccount) { // Check if destination account exists
+  }
+  if (!toAccount) {
+    // Check if destination account exists
     throw new Error("Destination account not found.");
-  } else if (amount > fromAccount.balance) { // Check if transfer amount is valid
+  }
+  if (amount > fromAccount.balance) {
+    // Check if transfer amount is valid
     throw new Error("Insufficient funds.");
-  } else if ( // Check if transfer amount is valid
+  }
+  if (
+    // Check if transfer amount is valid
     !Number.isFinite(amount) ||
     amount <= 0 ||
     typeof amount !== "number"
@@ -129,14 +140,15 @@ function transferMoney(fromAccountId, toAccountId, amount) {
     throw new Error(
       "Invalid value for transfer amount: The amount must be a positive finite number."
     );
-  } else { // Transfer money from source to destination
-    toAccount.balance += amount;
-    fromAccount.balance -= amount;
-    console.log(
-      `Transferred ${amount} from account ${fromAccountId} to account ${toAccountId}. New account ${fromAccountId} balance: ${fromAccount.balance}, New account ${toAccountId} balance: ${toAccount.balance}`
-    );
   }
+  // Transfer money from source to destination
+  toAccount.balance += amount;
+  fromAccount.balance -= amount;
+  console.log(
+    `Transferred ${amount} from account ${fromAccountId} to account ${toAccountId}. New account ${fromAccountId} balance: ${fromAccount.balance}, New account ${toAccountId} balance: ${toAccount.balance}`
+  );
 }
+
 //transferMoney(1, 4, 100);
 
 //transferMoney(1, 2, 501);
