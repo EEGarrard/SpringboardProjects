@@ -1,17 +1,26 @@
 function pivot(arr, start = 0, end = arr.length - 1) {
+  // pivot element to be swapped with the rightmost element
   const swap = (arr, idx1, idx2) => {
+    // Swap elements at idx1 and idx2
     [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
   };
+  // Place the pivot element at its correct position in sorted array
   let pivot = arr[start];
+  // Index of smaller element
   let swapIdx = start;
 
   for (let i = start + 1; i <= end; i++) {
+    // If current element is smaller than the pivot
     if (arr[i] < pivot) {
+      // Swap elements at swapIdx and i
       swap(arr, swapIdx +1, i);
+      // Increment the swap index for the next smaller element
       swapIdx++;
     }
   }
+  // Swap the pivot element with the element at swapIdx (the rightmost element)
   swap(arr, start, swapIdx);
+
   console.log(swapIdx);
   console.log(arr);
   return swapIdx;
