@@ -51,7 +51,7 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
       // Recursively sort the right half of the array
       quickSort(arr, pivotIndex + 1, right);
     }
-    
+    console.log(arr)
     return arr;
     
   }

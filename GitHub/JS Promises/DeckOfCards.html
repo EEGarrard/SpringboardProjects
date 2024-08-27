@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Drawer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Draw a Card from the Deck</h1>
+    <button id="drawButton">Draw Card</button>
+    <div id="card">
+        <img id="cardImage" src="" alt="Card Image" height="150px"/>
+        <p id="cardText"></p>
+    </div>
+    <div id="remainingCards">
+        <p>Remaining cards: <span id="cardCount">0</span></p>
+    </div>
+    
+    <!-- Always visible new deck button -->
+    <div id="noCardsMessage" style="display: none;">
+        <p>No cards left!</p>
+    </div>
+    <button id="newDeckButton">Get a New Deck</button>
+
+    <script src="DeckOfCards.js"></script>
+</body>
+</html>
