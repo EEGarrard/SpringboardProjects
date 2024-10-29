@@ -78,4 +78,3 @@ describe("numGreater", function() {
     expect(emptyTree.numGreater(0)).toEqual(0);
   });
 });
-
