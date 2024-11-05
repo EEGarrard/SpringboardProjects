@@ -23,24 +23,24 @@ class BinaryTree {
     if (!node.left && !node.right) return 1;
     //if left node is null, recurse on the right child
     if (!node.left) {
-        return this.minDepth(node.right) += 1;
+      return this.minDepth(node.right) + 1;
     }
     //if right node is null, recurse on the left child
     if (!node.right) {
-        return this.minDepth(node.left) += 1;
-     }
-     //if both children exist, return the minimum of the two depths
-     return Math.min(this.minDepth(node.left), this.minDepth(node.right)) + 1;
- }
+      return this.minDepth(node.left) + 1;
+    }
+    //if both children exist, return the minimum of the two depths
+    return Math.min(this.minDepth(node.left), this.minDepth(node.right)) + 1;
+  }
 
   /** maxDepth(): return the maximum depth of the tree -- that is,
    * the length of the longest path from the root to a leaf. */
- 
+
   maxDepth(node = this.root) {
     if (!node) return 0; //Base case: if node is null, depth is 0
     const leftDepth = this.maxDepth(node.left);
     const rightDepth = this.maxDepth(node.right);
-    return Math.max(leftDepth, rightDepth) + 1
+    return Math.max(leftDepth, rightDepth) + 1;
   }
 
   /** maxSum(): return the maximum sum you can obtain by traveling along a path in the tree.
@@ -48,10 +48,25 @@ class BinaryTree {
 
   maxSum(node = this.root) {
     if (!node) return 0; // Base case: if node is null, sum is 0
-    const leftSum = this.maxSum(node.left);
-    const rightSum = this.maxSum(node.right);
-    return Math.max(node.val + leftSum, node.val + rightSum);
+    // Recursively calculate the sums of the left and right subtrees
+    function sum(node) {
+      if (!node) return 0; // Base case: if node is null, sum is 0
+      return Math.max(node.val + Math.max(sum(node.left), sum(node.right), 0), 0);
+    }
+    function sumInclusive(node) {
+      if (!node) return 0; // Base case: if node is null, sum is 0
+      return node.val + sum(node.left) + sum(node.right);
+    }
+    function sumExclusive(node) {
+      if (!node) return 0; // Base case: if node is null, sum is 0
+      return Math.max(
 
+        sumExclusive(node.left),
+        sumExclusive(node.right),
+        sumInclusive(node)
+      );
+    }
+    return Math.max(sumExclusive(this.root), sumInclusive(this.root));
   }
 
   /** nextLarger(lowerBound): return the smallest value in the tree
@@ -87,39 +102,31 @@ class BinaryTree {
    * (i.e. are at the same level but have different parents. ) */
 
   areCousins(node1, node2) {
-    if (!node1 ||!node2) return false; // Base case: if either node is null, they cannot be cousins
+    if (!node1 || !node2) return false; // Base case: if either node is null, they cannot be cousins
 
     // If nodes are the same, they cannot be cousins
     if (node1 === node2) return false;
 
-  
     if (node1.parent === node2.parent) return false;
 
-    
     return true;
   }
 
   /** Further study!
    * serialize(tree): serialize the BinaryTree object tree into a string. */
 
-  static serialize() {
-
-  }
+  static serialize() {}
 
   /** Further study!
    * deserialize(stringTree): deserialize stringTree into a BinaryTree object. */
 
-  static deserialize() {
-
-  }
+  static deserialize() {}
 
   /** Further study!
    * lowestCommonAncestor(node1, node2): find the lowest common ancestor
    * of two nodes in a binary tree. */
 
-  lowestCommonAncestor(node1, node2) {
-    
-  }
+  lowestCommonAncestor(node1, node2) {}
 }
 
 module.exports = { BinaryTree, BinaryTreeNode };
