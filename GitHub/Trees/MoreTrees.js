@@ -12,3 +12,4 @@ const { BinaryTree, BinaryTreeNode } = require("./binary-tree");
 
   let negativeTree = new BinaryTree(n);
   console.log(negativeTree.maxSum());
+ 

@@ -51,7 +51,10 @@ class BinaryTree {
     // Recursively calculate the sums of the left and right subtrees
     function sum(node) {
       if (!node) return 0; // Base case: if node is null, sum is 0
-      return Math.max(node.val + Math.max(sum(node.left), sum(node.right), 0), 0);
+      return Math.max(
+        node.val + Math.max(sum(node.left), sum(node.right), 0),
+        0
+      );
     }
     function sumInclusive(node) {
       if (!node) return 0; // Base case: if node is null, sum is 0
@@ -60,7 +63,6 @@ class BinaryTree {
     function sumExclusive(node) {
       if (!node) return 0; // Base case: if node is null, sum is 0
       return Math.max(
-
         sumExclusive(node.left),
         sumExclusive(node.right),
         sumInclusive(node)
@@ -103,15 +105,44 @@ class BinaryTree {
 
   areCousins(node1, node2) {
     if (!node1 || !node2) return false; // Base case: if either node is null, they cannot be cousins
-
-    // If nodes are the same, they cannot be cousins
     if (node1 === node2) return false;
+    // If nodes are the same, they cannot be cousins
+    let root = this.root;
+    if (node1 === node2.left || node1 === node2.right) return false;
+    if (node2 === node1.right || node2 === node1.left) return false;
+    
+    let parent = null;
+    
+    function makeParent(current, node) {
+        //if current is null, then return false
+        if (!current) return false;
+        //if node is null, then return false
+      if (!node) return false;
+      //if current node is the same as grandchild, return false
+      if (node === current) return false;
+      //if node is child of current, return current as parent
+      if (node === current.left || node === current.right) {
+        parent = current;
+        return parent;
+      }
+    
+      if (makeParent(current.left, node)) return parent;
+     
+      if (makeParent(current.right, node)) return parent;
+      return false;
+      //   return parent
+    }
+//siblings case
+    if (makeParent(root, node1) === makeParent(root, node2)) return false;
 
-    if (node1.parent === node2.parent) return false;
+    function makeGrandparent(node) {
+      let parent = makeParent(root, node);
+      return makeParent(root, parent);
+    }
 
-    return true;
+    if (makeGrandparent(node1) === makeGrandparent(node2)) return true;
+    else return false;
   }
-
   /** Further study!
    * serialize(tree): serialize the BinaryTree object tree into a string. */
 
