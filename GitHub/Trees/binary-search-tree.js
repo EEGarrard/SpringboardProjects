@@ -1,3 +1,5 @@
+const { throwStatement } = require("@babel/types");
+
 class Node {
   constructor(val, left = null, right = null) {
     this.val = val;
@@ -168,25 +170,24 @@ class BinarySearchTree {
   /** dfsInOrder(): Traverse the array using in-order DFS.
    * Return an array of visited nodes. */
 
-  dfsInOrder() {
+  dfsInOrder(node = this.root, visited = []) {
     if (node === null) {
         return visited;
     }
-    
-    this.dfsPreOrder(node.left, visited);
     visited.push(node.val);
-    this.dfsPreOrder(node.right, visited);
+    
     return visited;
   }
 
   /** dfsPostOrder(): Traverse the array using post-order DFS.
    * Return an array of visited nodes. */
 
-  dfsPostOrder(node = this.root) {
+  dfsPostOrder(node = this.root, visited = []) {
     if (node === null) {
         return visited;
     }
-    console.log(node.val);
+    visited.push(node.val)
+    
     if(node.left)
         this.dfsPostOrder(node.left);
     
@@ -198,7 +199,10 @@ class BinarySearchTree {
   /** bfs(): Traverse the array using BFS.
    * Return an array of visited nodes. */
 
-  bfs() {}
+  bfs(node = this.root) {
+    if (node === null) {
+        return visited;}
+  }
 
   /** Further Study!
    * remove(val): Removes a node in the BST with the value val.
