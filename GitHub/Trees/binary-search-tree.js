@@ -199,10 +199,21 @@ class BinarySearchTree {
   /** bfs(): Traverse the array using BFS.
    * Return an array of visited nodes. */
 
-  bfs(node = this.root) {
-    if (node === null) {
-        return visited;}
-  }
+  bfs(tree, start) {
+    let queue = [];
+    let visited = new Set();
+    queue.push(start);
+    visited.add(start);
+    while(queue.length > 0) {
+      let node = queue.shift();
+      console.log(node);
+      for(let neighbor of tree[node]) {
+        if(!visited.has(neighbor)) {
+          queue.push(neighbor);
+          visited.add(neighbor);
+        }
+      }
+  }}
 
   /** Further Study!
    * remove(val): Removes a node in the BST with the value val.
