@@ -170,7 +170,7 @@ describe("remove", function() {
     binarySearchTree.remove(50);
     expect(binarySearchTree.root.right.val).toBe(20);
     expect(binarySearchTree.root.right.right).toBe(null);
-
+ 
     binarySearchTree.remove(5);
     expect(binarySearchTree.root.left.left.val).toBe(1);
     expect(binarySearchTree.root.left.left.right).toBe(null);

@@ -51,8 +51,7 @@ class BinarySearchTree {
 
   insertRecursively(val) {
     const newNode = new Node(val);
-
-    function insert(node) {
+ function insert(node) {
       if (node === null) {
         return newNode;
       }
@@ -221,9 +220,11 @@ class BinarySearchTree {
 
       if (val < node.val) {
         node = node.left;
+        continue;
       }
       if (val > node.val) {
         node = node.right;
+        continue;
       }
     }
 
@@ -234,7 +235,6 @@ class BinarySearchTree {
 
     //If the node has no children, remove the node
     if (node.left === null && node.right === null) {
-      
       if (node === this.root) {
         this.root = null;
         return;
@@ -243,14 +243,11 @@ class BinarySearchTree {
         return;
       } else {
         parent.right = null;
-        node = null;
-        
       }
-      return;
     }
 
     //if the node has one child, remove the node and connect the node's parent to the node's child
-    if (node.left === null || node.right === null) {
+    else if (node.left === null || node.right === null) {
       let child = node.left ? node.left : node.right;
       if (node === this.root) {
         this.root = child;
@@ -266,28 +263,71 @@ class BinarySearchTree {
 
     //if the node has two children, connect the node's parent to the greatest  of the subtrees
     else {
-      if (node === parent.left) {
-        let child = node.left;
-        let rightChildren = child.right;
-        while (rightChildren.right) {
-          rightChildren = rightChildren.right;
+      // if (node === parent.left) {
+      //   let child = node.right;
+      //   if (!child.left && !child.right) {
+      //     parent.left = child;
+      //     child.left = node.left;
+      //     return;
+      //   }
+      //   let leftChildren = child.left;
+      //   if (!leftChildren) {
+      //     parent.left = child;
+      //   }
+      //   while (leftChildren.left) {
+      //     leftChildren = leftChildren.left;
+      //   }
+      //   if (leftChildren.right) {
+      //     let rightC = leftChildren.right;
+
+      //   }
+
+      //   leftChildren = parent.left;
+
+      //   leftChildren.right = child;
+      //   leftChildren.left = node.left;
+      // }
+      // if (node === parent.right) {
+      //   let child = node.right;
+      //   let leftChildren = child.left;
+      //   if (!leftChildren) {
+      //     parent.right = child;
+      //     child.left = node.left;
+      //     child.right = node.right;
+      //     return;
+      //   }
+      //   if(leftChildren.left) {
+      //   while (leftChildren.left) {
+      //     let LCP = leftChildren
+      //     leftChildren = leftChildren.left;
+      //   }}
+      //   if (leftChildren.right) {
+      //     let rightC = leftChildren.right;
+      //     rightC = leftChildren;
+      //   }
+      //   parent.right = leftChildren;
+
+      //   leftChildren.right = child;
+      //   leftChildren.right = parent.right.right;
+      let LRC = node.right;
+      let LRCparent = node;
+      if (!LRC.left) {
+        LRC.left = node.left;
+      } else {
+        while (LRC.left) {
+          LRCparent = LRC;
+          LRC = LRC.left;
         }
-        parent.left = rightChildren;
-        rightChildren.left = child;
-        rightChildren.right =  parent.left.right
+        LRCparent.left = LRC.right;
+        LRC.left = node.left;
+        LRC.right = node.right;
       }
-      if (node === parent.right) {
-        let child = node.right;
-        let leftChildren = child.left;
-        while (leftChildren.left) {
-          leftChildren = leftChildren.left;
-        }
-        parent.right = leftChildren;
-        
-       
-        leftChildren.left = child;
-        leftChildren.right = parent.right.left;
-        
+      if (this.root === node) {
+        this.root = LRC;
+      } else if (parent.left === node) {
+        parent.left = LRC;
+      } else {
+        parent.right = LRC;
       }
     }
   }
@@ -295,13 +335,48 @@ class BinarySearchTree {
   /** Further Study!
    * isBalanced(): Returns true if the BST is balanced, false otherwise. */
 
-  isBalanced() {}
+  isBalanced() {
+    function height(node) {
+      if (!node) {
+        return 0;
+      }
+      return Math.max(height(node.left), height(node.right)) + 1;
+    }
+    function checkBalance(node) {
+      if (!node) return true;
 
+      if (Math.abs(height(node.left) - height(node.right)) > 1) return false;
+
+      if (checkBalance(node.left) && checkBalance(node.right)) return true;
+      return false;
+    }
+    return checkBalance(this.root);
+  }
   /** Further Study!
    * findSecondHighest(): Find the second highest value in the BST, if it exists.
    * Otherwise return undefined. */
 
-  findSecondHighest() {}
+  findSecondHighest() {
+    
+    if (!this.root) return undefined;
+    if (!this.root.left && !this.root.right) return undefined;
+    let node = this.root;
+    if (node.right) {
+      let first = node.right;
+      let second = node;
+      while (first.right) {
+        first = first.right;
+        second = second.right;
+      }
+      return second.val;
+    } else {
+      let second = this.root.left;
+      while (second.right) {
+        second = second.right;
+      }
+      return second.val;
+    }
+  }
 }
 
 module.exports = BinarySearchTree;

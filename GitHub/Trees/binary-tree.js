@@ -108,15 +108,16 @@ class BinaryTree {
     if (node1 === node2) return false;
     // If nodes are the same, they cannot be cousins
     let root = this.root;
+
     if (node1 === node2.left || node1 === node2.right) return false;
     if (node2 === node1.right || node2 === node1.left) return false;
-    
+
     let parent = null;
-    
+
     function makeParent(current, node) {
-        //if current is null, then return false
-        if (!current) return false;
-        //if node is null, then return false
+      //if current is null, then return false
+      if (!current) return false;
+      //if node is null, then return false
       if (!node) return false;
       //if current node is the same as grandchild, return false
       if (node === current) return false;
@@ -125,14 +126,14 @@ class BinaryTree {
         parent = current;
         return parent;
       }
-    
+
       if (makeParent(current.left, node)) return parent;
-     
+
       if (makeParent(current.right, node)) return parent;
       return false;
       //   return parent
     }
-//siblings case
+    //siblings case
     if (makeParent(root, node1) === makeParent(root, node2)) return false;
 
     function makeGrandparent(node) {
@@ -146,18 +147,85 @@ class BinaryTree {
   /** Further study!
    * serialize(tree): serialize the BinaryTree object tree into a string. */
 
-  static serialize() {}
+  static serialize(tree) {
+    function stringify(node) {
+      if (!node) return "null";
+
+      return `${node.val}(${stringify(node.left)},${stringify(node.right)})`;
+    }
+    return stringify(tree.root);
+  }
 
   /** Further study!
    * deserialize(stringTree): deserialize stringTree into a BinaryTree object. */
 
-  static deserialize() {}
+  static deserialize(stringTree) {
+    function destringify(string) {
+      if (string == "" || string == "null") return null;
+      let root = new BinaryTreeNode(); //this probably breaks since there's no val
+      if (string.indexOf("(") === -1) {
+        root.val = parseInt(string.slice(0, string.length)); //fixme
+        return root;
+      }
+      root.val = parseInt(string.slice(0, string.indexOf("(")));
+      let count = 0;
+
+      let childstring = string.slice(
+        string.indexOf("(") + 1,
+        string.length - 1
+      );
+
+      let i = 0;
+      if (
+        childstring.indexOf("(") < childstring.indexOf(",") &&
+        childstring.indexOf("(") !== -1
+      ) {
+        for (i = 0; i < childstring.length; i++) {
+          if (childstring[i] == "(") {
+            count += 1;
+          }
+          if (childstring[i] == ")") {
+            count -= 1;
+            if (count === 0) {
+              i += 1;
+              break;
+            }
+          }
+        }
+      } else {
+        i = childstring.indexOf(",");
+      }
+
+      root.left = destringify(childstring.slice(0, i));
+      root.right = destringify(childstring.slice(i + 1));
+      return root;
+    }
+    return new BinaryTree(destringify(stringTree));
+  }
 
   /** Further study!
    * lowestCommonAncestor(node1, node2): find the lowest common ancestor
    * of two nodes in a binary tree. */
 
-  lowestCommonAncestor(node1, node2) {}
-}
+  lowestCommonAncestor(node1, node2) {
+    //if nodes are empty, return undefined
+    //if root is empty, return undefined
+    let root = this.root;
+    if (!root || !node1 || !node2) return undefined;
 
+    function LCA(node, node1, node2) {
+      if (!node) return undefined;
+      if (node === node1 || node === node2) return node;
+
+      let leftLCA = LCA(node.left, node1, node2);
+      let rightLCA = LCA(node.right, node1, node2);
+
+     
+      if (leftLCA && rightLCA) return node;
+
+      return leftLCA ? leftLCA : rightLCA;
+    }
+    return LCA(root, node1, node2);
+  }
+}
 module.exports = { BinaryTree, BinaryTreeNode };
