@@ -37,7 +37,6 @@ class FriendGraph {
         }
       }
     }
-    return false;
   }
   areConnectedDFS(person1, person2) {
     let toVisitStack = [person1];
@@ -122,3 +121,5 @@ friends.setFriends(barney, lenny);
 // friends.areConnectedDFS(homer, moe);
 
 console.log(friends.areConnectedRecursive(homer, marge)); 
+console.log(friends.areConnectedBFS(homer, marge));
+console.log(friends.areConnectedDFS(homer, marge));
