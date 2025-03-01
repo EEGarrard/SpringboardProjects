@@ -1,0 +1,40 @@
+/* Your Styles Here */
+body {
+    background-color: rgb(39, 28, 75);
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    text-shadow: rgb(21, 2, 2) 2px 2px;
+}
+
+button {
+    background-color: rgb(231, 232, 218);
+    color: rgb(29, 22, 22);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: black 3px 3px;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: black 2px 2px;
+
+}
+.gif {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: black 1px 1px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    text-align: left;
+    max-width: 500px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
