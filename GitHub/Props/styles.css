@@ -1,0 +1,107 @@
+/* Global styles */
+body {
+    font-family: 'Orbitron', sans-serif; /* Use a space-futuristic font */
+    background: #000000; /* Space-black background */
+    color: #fff; /* White text color for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: auto; /* Allow height to be flexible */
+    min-height: 100vh; /* Ensure it stretches at least to the full height of the viewport */
+    overflow-y: scroll; /* Allow vertical scrolling */
+    position: relative;
+  }
+  
+  /* Add a moving stars background */
+  body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/star-sky.png');
+    opacity: 0.1;
+    z-index: -1;
+    animation: star-field 200s linear infinite;
+  }
+  
+  @keyframes star-field {
+    from { background-position: 0 0; }
+    to { background-position: 5000px 5000px; }
+  }
+  
+  /* Container for the entire app */
+  div {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Header */
+  h1 {
+    font-size: 3em;
+    color: #00bfff; /* Space-blue color */
+    text-shadow: 0px 0px 15px rgba(0, 191, 255, 0.8); /* Glowing effect */
+    margin-bottom: 20px;
+  }
+  
+  /* Inventory List */
+  ol {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  /* Individual inventory item */
+  li {
+    padding: 20px;
+    margin: 10px 0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  /* Hover effect on inventory items */
+  li:hover {
+    background-color: rgba(0, 128, 255, 0.6); /* Space blue hover */
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  
+  h3 {
+    font-size: 1.3em;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 10px rgba(0, 191, 255, 0.5); /* Glowing effect */
+  }
+  
+  /* Message for low inventory and high value */
+  p {
+    font-size: 1em;
+    margin: 5px 0;
+  }
+  
+  /* Low inventory message (red) */
+  p:nth-child(1) {
+    color: #FF6347; /* Red for Low inventory */
+    font-weight: bold;
+  }
+  
+  /* High value message (yellow/orange) */
+  p:nth-child(2) {
+    color: #FF4500; /* Orange for Extra security */
+    font-weight: bold;
+  }
+  
