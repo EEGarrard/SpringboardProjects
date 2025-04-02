@@ -1,0 +1,128 @@
+/* style.css */
+
+/* Body and Background */
+body {
+    font-family: 'Arial', sans-serif; /* Clean and simple font */
+    background-color: #d1e7e1; /* Soft beachy light teal background for a fresh ocean feel */
+    color: #2a4d6c; /* Deep ocean blue for text */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url('https://www.transparenttextures.com/patterns/sand.png'); /* Light sand texture */
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* Title */
+  h1 {
+    font-family: 'Pacifico', cursive; /* Fun, tropical cursive font for the title */
+    color: #ffb3ab; /* Lighter coral color for a softer beach vibe */
+    margin-top: 30px;
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 4px solid #a0d8ef; /* Light beachy blue underline */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Card Images */
+  img {
+    width: 120px;
+    height: 180px;
+    margin: 15px;
+    border-radius: 15px; /* Rounded corners for a soft, beachy look */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow to create depth */
+    background-color: rgba(255, 255, 255, 0.7); /* Slight white background behind cards */
+    border: 3px solid #ffb3ab; /* Light coral border to match the beachy colors */
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+  }
+  
+  /* Hover Effect for Cards */
+  img:hover {
+    transform: scale(1.05); /* Slight zoom effect to make the cards feel interactive */
+    border-color: #4b7e8b; /* Deeper blue-green border on hover */
+  }
+  
+  /* Button */
+  button {
+    background-color: #ffb3ab; /* Light coral background for the button */
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-family: 'Pacifico', cursive; /* Fun, tropical cursive font */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow around the button */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+  
+  /* Button Hover */
+  button:hover {
+    background-color: #ff8c7e; /* Softer coral-red on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Score Section */
+  div {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
+    padding: 15px;
+    border-radius: 15px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Soft floating shadow */
+    font-family: 'Arial', sans-serif; /* Simple and readable font for scores */
+    color: #2a4d6c; /* Deep ocean blue for the text */
+  }
+  
+  /* Special Message for Blackjack */
+  div > div {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffb3ab; /* Light coral-orange for "Blackjack!" message */
+    margin-top: 15px;
+    font-family: 'Pacifico', cursive; /* Tropical cursive font for the playful message */
+  }
+  
+  /* Container for Cards */
+  div.card-container {
+    background-image: url('https://www.transparenttextures.com/patterns/waves.png'); /* Light wave pattern for beach feel */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow around the card container */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-translucent white background */
+  }
+  
+  /* Button Texture */
+  button {
+    background-image: url('https://www.transparenttextures.com/patterns/coffee.png'); /* Subtle texture for a beachy vibe */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+  
+    img {
+      width: 100px;
+      height: 150px;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  
+    div {
+      width: 80%;
+    }
+  }
+  
