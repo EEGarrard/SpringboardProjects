@@ -1,115 +1,143 @@
-/* Global Styles */
+/* Global Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans JP', sans-serif;
-  }
-  
-  /* Body */
-  body {
-    background-color: #f9f6f0; /* Soft beige background */
-    color: #4a4a4a;
-    line-height: 1.6;
-    padding: 20px;
-    background-image: url('https://images.unsplash.com/photo-1574848320328-5823a321e545'); /* Japanese countryside background */
-    background-size: cover;
-    background-position: center;
-  }
-  
-  /* Header */
-  h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #2e2b2b; /* Deep earthy brown */
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Hands Container */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Body and Root Container */
+body {
+  background-color: #f9f6f0;
+  color: #4a4a4a;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('https://images.unsplash.com/photo-1574848320328-5823a321e545');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#root {
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Game Container */
+.game-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Hands Layout */
+.hands-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+  overflow: auto;
+  padding-bottom: 20px;
+}
+
+.hand {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 48%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pokemon Cards Grid */
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.pokecard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.pokecard img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Headers and Text */
+h1 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #8a5b2f;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.winner-message {
+  color: #4caf50;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  background-color: #e6f7e3;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .hands-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
   }
   
-  /* Individual Hand Styling */
   .hand {
-    background: rgba(255, 255, 255, 0.85); /* Light white background with transparency */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 45%;
-    text-align: center;
-    backdrop-filter: blur(5px); /* Blurred background effect */
-    transition: transform 0.3s ease;
-    background-color: #f3f1f0; /* Off-white, a natural, warm tone */
+    width: 100%;
   }
   
-  .hand:hover {
-    transform: scale(1.05); /* Slightly scale up the hand when hovered */
+  .pokemon-grid {
+    grid-template-columns: 1fr;
   }
   
-  h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #8a5b2f; /* Earthy brown color */
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15); /* Soft shadow effect */
+  h1 {
+    font-size: 1.5rem;
   }
   
-  /* Pokedex Card Styles */
-  .pokedex-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    background-color: #f1e6d7; /* Soft cream color */
-  }
-  
-  .pokedex-card:hover {
-    transform: translateY(-5px); /* Lift card when hovered */
-  }
-  
-  /* Styling for the Winner Message */
-  p {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #d14747; /* Red for a subtle winning message */
-    margin-top: 15px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Winner Message Color */
-  .hand .winner-message {
-    color: #4caf50; /* Green for the winning hand */
-    font-weight: bold;
+  h2 {
     font-size: 1.3rem;
-    text-align: center;
-    background-color: #e6f7e3; /* Light green background for emphasis */
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
-  /* Additional Text Styling */
-  p, h3 {
-    margin: 0;
-    padding: 5px 0;
-  }
-  
-  /* Adjustments for smaller screens */
-  @media (max-width: 768px) {
-    .hands-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .hand {
-      width: 90%;
-    }
-  }
-  
+}
