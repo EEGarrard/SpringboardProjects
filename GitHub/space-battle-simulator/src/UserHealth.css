@@ -1,0 +1,116 @@
+body {
+    background-color: #0d0d1a;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .myHealth,
+  .enemyHealth {
+    margin: 20px auto;
+    padding: 15px;
+    width: fit-content;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 50, 0.6);
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #0ff;
+    text-align: center;
+  }
+  
+  .fireButton {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff0040, #ff7700);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #ff0040;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+  
+  .fireButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #ff0040, 0 0 50px #ff7700;
+  }
+  
+  .fireButton:disabled {
+    background: #333;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  .restartButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #222;
+    color: #0ff;
+    border: 2px solid #0ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #0ff;
+    cursor: pointer;
+  }
+  
+  .restartButton:hover {
+    background-color: #0ff;
+    color: #000;
+  }
+  .gameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 20px;
+  }
+  
+  .restartButton {
+    /* In case you haven’t styled it already */
+    display: block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #222;
+    color: #0ff;
+    border: 2px solid #0ff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #0ff;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .restartButton:hover {
+    background-color: #0ff;
+    color: #000;
+  }
+  .healthContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  
+  .myHealth,
+  .enemyHealth {
+    width: 45%;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    background: rgba(0, 0, 50, 0.6);
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #0ff;
+  }
+  
