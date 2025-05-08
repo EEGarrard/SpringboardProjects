@@ -1,0 +1,15 @@
+.star {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  outline: none;
+  background-color: gold;
+}
+
+.star:focus {
+  box-shadow: 0 0 0 2px white;
+}
+
+.star:hover, .star:focus {
+  transform: translate(-50%, -50%) scale(1.8);
+  filter: drop-shadow(0 0 8px gold);
+}
