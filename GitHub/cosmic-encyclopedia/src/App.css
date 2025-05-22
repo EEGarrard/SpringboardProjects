@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background-color: #0a0a1a;
+  color: #e0e0ff;
+}
+
+.content {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
