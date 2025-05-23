@@ -1,0 +1,112 @@
+/* Pluto.css */
+.pluto-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #e2e8f0;
+}
+
+.pluto-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pluto-header h1 {
+  font-size: 3rem;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dwarf-tag {
+  background: #7c3aed;
+  color: white;
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  opacity: 0.8;
+}
+
+.pluto-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.pluto-image-container {
+  position: relative;
+}
+
+.pluto-image {
+  height: 300px;
+  background: url('https://www.usatoday.com/gcdn/presto/2022/03/30/USAT/2b0a574f-1378-4536-9f93-5c7544aa760b-XXX_IMG_SPUTNIK_PLANITIA_COP_1_1_J9GECN43.JPG?width=660&height=429&fit=crop&format=pjpg&auto=webp') center/cover;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+.image-caption {
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.5rem;
+  opacity: 0.7;
+}
+
+.pluto-facts {
+  background: rgba(15, 23, 42, 0.7);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 3px solid #38bdf8;
+}
+
+.pluto-facts h2 {
+  color: #f59e0b;
+  margin-top: 0;
+}
+
+.pluto-facts ul {
+  padding-left: 1.25rem;
+}
+
+.pluto-facts li {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.pluto-facts li::before {
+  content: '✦';
+  color: #38bdf8;
+  position: absolute;
+  left: -1.25rem;
+}
+
+.pluto-exploration {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  margin-top: 2rem;
+}
+
+.pluto-exploration h2 {
+  color: #f59e0b;
+}
+
+@media (max-width: 768px) {
+  .pluto-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .pluto-header h1 {
+    font-size: 2rem;
+    flex-direction: column;
+  }
+}

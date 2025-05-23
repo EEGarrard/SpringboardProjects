@@ -1,0 +1,206 @@
+/* Blackholes.css */
+.blackhole-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #e2e8f0;
+}
+
+.blackhole-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.blackhole-header h1 {
+  font-size: 4rem;
+  background: linear-gradient(90deg, #000000, #4b5563);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #9ca3af;
+}
+
+.blackhole-visual {
+  height: 400px;
+  position: relative;
+  margin: 4rem 0;
+}
+
+.event-horizon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #111827 40%, #000000 100%);
+  box-shadow: 0 0 0 5px #1f2937, 
+              0 0 0 10px #111827,
+              0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.accretion-disk {
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(59, 130, 246, 0.8), 
+    rgba(124, 58, 237, 0.8), 
+    rgba(59, 130, 246, 0.8), 
+    transparent);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(70deg);
+  animation: rotate-disk 60s linear infinite;
+}
+
+.singularity {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.gravitational-lens {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-lens 8s infinite alternate;
+}
+
+.visual-legend {
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.info-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.info-tabs button {
+  background: #1f2937;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.info-tabs button.active {
+  background: #3b82f6;
+  color: white;
+  font-weight: bold;
+}
+
+.info-tabs button:hover {
+  background: #4b5563;
+}
+
+.facts-container {
+  background: rgba(17, 24, 39, 0.7);
+  padding: 2rem;
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.blackhole-facts {
+  list-style: none;
+  padding: 0;
+}
+
+.blackhole-facts li {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.fact-decorator {
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background: #3b82f6;
+  border-radius: 50%;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.blackhole-facts li:hover .fact-decorator {
+  transform: scale(1.5);
+  background: #f59e0b;
+}
+
+.einstein-quote {
+  text-align: center;
+  margin: 4rem 0;
+  font-style: italic;
+  color: #9ca3af;
+  font-size: 1.25rem;
+}
+
+.einstein-quote footer {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+@keyframes rotate-disk {
+  from { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(0deg); }
+  to { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(360deg); }
+}
+
+@keyframes pulse-lens {
+  from { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0.1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@media (max-width: 768px) {
+  .blackhole-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .event-horizon {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .accretion-disk {
+    width: 300px;
+  }
+  
+  .gravitational-lens {
+    width: 400px;
+    height: 400px;
+  }
+}

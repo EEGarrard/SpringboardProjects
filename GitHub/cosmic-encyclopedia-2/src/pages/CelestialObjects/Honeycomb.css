@@ -1,0 +1,203 @@
+/* Honeycomb.css */
+.honeycomb-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #e2e8f0;
+}
+
+.cosmic-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cosmic-header h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #ff4d4d, #b34dff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #a5b4fc;
+}
+
+.science-card {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 3rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.visualization-container {
+  position: relative;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.honeycomb-3d {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform: rotate(var(--rotation));
+  transition: transform 1.5s cubic-bezier(0.17, 0.67, 0.21, 0.99);
+  cursor: pointer;
+}
+
+.honeycomb-wall {
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  background: linear-gradient(to right, rgba(255,77,77,0.1), #ff4d4d);
+  box-shadow: 0 0 15px currentColor;
+  filter: brightness(1.2);
+}
+
+.central-stars {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #fff, #ff0);
+  border-radius: 50%;
+  box-shadow: 0 0 30px #ff0;
+  z-index: 10;
+}
+
+.scale-indicator {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #a5b4fc;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.sides-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sides-control input {
+  accent-color: #b34dff;
+}
+
+.reset-button {
+  background: transparent;
+  border: 1px solid #4d79ff;
+  color: #e2e8f0;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  background: rgba(77, 121, 255, 0.2);
+}
+
+.theories-section {
+  margin: 4rem 0;
+}
+
+.theory-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.theory-tabs button {
+  background: transparent;
+  border: 1px solid;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theory-tabs button.active {
+  background: rgba(77, 121, 255, 0.2);
+  font-weight: bold;
+}
+
+.theory-info {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin-top: 1rem;
+}
+
+.evidence {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.cosmic-wonder {
+  background: rgba(179, 77, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #b34dff;
+  margin-top: 3rem;
+}
+
+.cosmic-wonder ul {
+  padding-left: 1.5rem;
+}
+
+.cosmic-wonder li {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.cosmic-wonder li::before {
+  content: '⁕';
+  color: #b34dff;
+  position: absolute;
+  left: -1.5rem;
+}
+
+@media (max-width: 768px) {
+  .cosmic-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+  }
+  
+  .theory-tabs {
+    flex-direction: column;
+  }
+  
+  .honeycomb-3d {
+    width: 250px;
+    height: 250px;
+  }
+}

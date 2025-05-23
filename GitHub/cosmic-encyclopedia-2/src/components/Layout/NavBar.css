@@ -1,0 +1,26 @@
+.navbar {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.navbar a {
+  color: var(--space-light);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--neon-blue);
+}
+
+.navbar a.active {
+  color: var(--neon-blue);
+  border-bottom: 2px solid var(--neon-blue);
+}

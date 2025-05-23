@@ -1,0 +1,68 @@
+/* index.css */
+:root {
+  --space-dark: #0f172a;
+  --space-light: #e2e8f0;
+  --neon-blue: #38bdf8;
+  --purple-nebula: #7c3aed;
+  --supernova-yellow: #f59e0b;
+}
+
+body {
+  background-color: var(--space-dark);
+  color: var(--space-light);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Add to App.css */
+.object-card {
+  background: linear-gradient(145deg, #1e293b, #0f172a);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-left: 3px solid var(--neon-blue);
+}
+
+.object-card h2 {
+  color: var(--neon-blue);
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .page-container {
+    padding: 1rem;
+  }
+}
+/* App.css */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(1px 1px at 50px 200px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 150px 300px, white, rgba(0,0,0,0));
+  background-size: 200px 200px;
+  z-index: -1;
+  animation: stars 100s linear infinite;
+}
+
+@keyframes stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
+}

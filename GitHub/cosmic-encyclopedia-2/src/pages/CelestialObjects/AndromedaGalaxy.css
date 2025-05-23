@@ -1,0 +1,182 @@
+/* AndromedaGalaxy.css */
+.andromeda-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #e2e8f0;
+}
+
+.andromeda-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.andromeda-header h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #8b5cf6, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.m31-tag {
+  background: rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+  font-size: 1.25rem;
+  padding: 0.25rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #8b5cf6;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+}
+
+.andromeda-hero {
+  position: relative;
+  height: 400px;
+  margin: 3rem 0;
+}
+
+.galaxy-image {
+  height: 100%;
+  background: url('https://www.usatoday.com/gcdn/-mm-/e1d78d18d18c0e71d5c7c4a0350b598687f50fe1/c=0-50-534-352/local/-/media/2015/01/20/USATODAY/USATODAY/635573577805533864-635573330936639965-Andromeda-Galaxy.jpg?width=534&height=302&fit=crop&format=pjpg&auto=webp') center/cover;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+}
+
+.distance-badge {
+  position: absolute;
+  bottom: -20px;
+  right: 30px;
+  background: rgba(15, 23, 42, 0.9);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #7c3aed;
+  text-align: center;
+  backdrop-filter: blur(5px);
+}
+
+.distance-badge .number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #38bdf8;
+  display: block;
+  line-height: 1;
+}
+
+.distance-badge .unit {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.distance-badge .label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.facts-section {
+  background: rgba(15, 23, 42, 0.7);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 3rem;
+}
+
+.facts-section h2 {
+  color: #f59e0b;
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.facts-section li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.fact-icon {
+  color: #8b5cf6;
+  position: absolute;
+  left: 0;
+}
+
+.collision-section {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.collision-section h2 {
+  color: #f59e0b;
+  font-size: 2rem;
+}
+
+.collision-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin: 2rem 0;
+}
+
+.milky-way, .andromeda-visual {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #3b82f6 0%, #1e40af 100%);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+.andromeda-visual {
+  background: radial-gradient(circle, #8b5cf6 0%, #5b21b6 100%);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+}
+
+.collision-arrow {
+  color: #f59e0b;
+  font-size: 2rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.observation-tip {
+  background: rgba(251, 191, 36, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f59e0b;
+  margin-top: 3rem;
+}
+
+.observation-tip h3 {
+  color: #f59e0b;
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .andromeda-header h1 {
+    font-size: 2rem;
+    flex-direction: column;
+  }
+  
+  .collision-visual {
+    gap: 1rem;
+  }
+  
+  .milky-way, .andromeda-visual {
+    width: 60px;
+    height: 60px;
+  }
+}

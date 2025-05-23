@@ -1,0 +1,14 @@
+.not-found {
+  text-align: center;
+  padding: 4rem;
+}
+
+.not-found h1 {
+  color: var(--supernova-yellow);
+  font-size: 3rem;
+}
+
+.not-found p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
