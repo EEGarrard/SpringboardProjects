@@ -1,0 +1,78 @@
+.posts-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.post-card {
+  background: var(--watercolor-paper);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.05),
+    0 5px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.post-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.03) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 0;
+}
+
+.post-content {
+  position: relative;
+  z-index: 1;
+}
+
+.post-title {
+  color: var(--watercolor-accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.post-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    var(--watercolor-accent) 0%, 
+    transparent 100%
+  );
+}
+
+.post-excerpt {
+  color: var(--watercolor-ink);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  display: flex;
+  gap: 1rem;
+}

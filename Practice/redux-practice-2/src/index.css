@@ -1,0 +1,67 @@
+/* Watercolor Base Theme */
+:root {
+  --watercolor-blue: #e0f2fe;
+  --watercolor-green: #e0f2e6;
+  --watercolor-peach: #ffebee;
+  --watercolor-lavender: #f3e5f5;
+  --watercolor-ink: #374151;
+  --watercolor-accent: #7c3aed;
+  --watercolor-paper: rgba(255, 255, 255, 0.92);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.6;
+  color: var(--watercolor-ink);
+  background: linear-gradient(
+    135deg, 
+    var(--watercolor-blue) 0%, 
+    var(--watercolor-green) 50%, 
+    var(--watercolor-peach) 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Watercolor texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/watercolor.png');
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Floating watercolor blobs */
+.watercolor-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  z-index: -1;
+  animation: float 25s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(50px, 30px) rotate(180deg);
+  }
+  100% {
+    transform: translate(-30px, -20px) rotate(360deg);
+  }
+}
