@@ -2,6 +2,7 @@
   "name": "redux-starter",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.0",
+    "redux": "^5.0.1",
     "immer": "^10.1.1",
     "immutable": "^5.1.2"
   }
