@@ -18,20 +18,29 @@ export default function Layout({ children }) {
 
   return (
     <div className={styles.container}>
+      <div className={styles.spacePattern}></div>
+      
       <ScrollToTop />
       <Navigation className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`} />
       
       <main className={styles.main}>
         <div 
           className={styles.content}
-          key={location.pathname} // Force re-render on route change
+          key={location.pathname}
         >
           {children}
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <p>© {new Date().getFullYear()} Space Travel Hub | Explore the Cosmos</p>
+        <div className={styles.footerContent}>
+          <p>© {new Date().getFullYear()} Interstellar Fleet Command</p>
+          <div className={styles.footerLinks}>
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Command</a>
+          </div>
+        </div>
       </footer>
     </div>
   );
