@@ -1,0 +1,67 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #4facfe;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.errorInput {
+  border-color: #ff6b6b !important;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.submitError {
+  color: #ff6b6b;
+  padding: 1rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Enhance button styles */
+.buttonGroup button[type="submit"] {
+  background: #4facfe;
+  color: white;
+}
+
+.buttonGroup button[type="button"] {
+  background: #6c757d;
+  color: white;
+}

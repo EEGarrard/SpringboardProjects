@@ -1,0 +1,252 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 1rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.notFound h2 {
+  color: #e63946;
+  margin-bottom: 1rem;
+}
+
+.header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: flex-start;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.imageContainer {
+  width: 300px;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #1d3557;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: #a8dadc;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f1faee;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a8dadc;
+  margin-bottom: 1.5rem;
+}
+
+.planetBadge {
+  margin-left: 0.5rem;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.detailCard {
+  background: rgba(29, 53, 87, 0.5);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #457b9d;
+}
+
+.detailCard h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #a8dadc;
+  border-bottom: 1px solid #457b9d;
+  padding-bottom: 0.5rem;
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.specItem {
+  background: rgba(69, 123, 157, 0.2);
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.specLabel {
+  display: block;
+  font-size: 0.8rem;
+  color: #a8dadc;
+  margin-bottom: 0.25rem;
+}
+
+.specValue {
+  font-weight: bold;
+  color: #f1faee;
+}
+
+.description {
+  line-height: 1.6;
+  color: #f1faee;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #457b9d;
+  padding-top: 2rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.primaryButton {
+  background: #457b9d;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.primaryButton:hover {
+  background: #1d3557;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #a8dadc;
+  border: 1px solid #457b9d;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondaryButton:hover {
+  background: rgba(69, 123, 157, 0.1);
+  color: #f1faee;
+}
+
+.dangerButton {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: bold;
+}
+
+.dangerButton:hover {
+  background: #c1121f;
+  transform: translateY(-2px);
+}
+
+.dangerButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+  }
+  
+  .imageContainer {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  
+  .details {
+    grid-template-columns: 1fr;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .actionButtons {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .primaryButton,
+  .secondaryButton,
+  .dangerButton {
+    width: 100%;
+    text-align: center;
+  }
+}
